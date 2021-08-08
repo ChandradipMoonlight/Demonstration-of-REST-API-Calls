@@ -1,11 +1,4 @@
 /*
- * UC-3 :- Make REST call to show Hello Mark form BridgeLabz.
- *  -Use GET Request method and pass name as path variable.
- *  -Use Curl to Demonstrate REST API call.
- *  -curl localhost:8080/hello/param/name
- *  eg. curl -X GET "http://localhost:8080/hello/param/Chandradip" -w "/"
-
- *
  * @Author : Chandradip Shivankar
  * @Since : August 08, 2021
  */
