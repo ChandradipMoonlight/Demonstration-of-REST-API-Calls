@@ -1,9 +1,9 @@
 /*
- * UC-2 :- Make REST call to show Hello Mark form BridgeLabz.
- *  -Use GET Request method and pass and pass name as query parameter.
+ * UC-3 :- Make REST call to show Hello Mark form BridgeLabz.
+ *  -Use GET Request method and pass name as path variable.
  *  -Use Curl to Demonstrate REST API call.
- *  -curl localhost:8080/hello/query?name=Mark -w "/n"
- *  eg.  curl -X GET "http://localhost:8080/hello/query/?name=Chandradip" -w "/"
+ *  -curl localhost:8080/hello/param/name
+ *  eg. curl -X GET "http://localhost:8080/hello/param/Chandradip" -w "/"
 
  *
  * @Author : Chandradip Shivankar
@@ -12,10 +12,7 @@
 
 package com.bridgelabz.rest_api_calls.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -42,5 +39,16 @@ public class RestApiController {
     @RequestMapping(value = {"/query"}, method = RequestMethod.GET)
     public String hello(@RequestParam(value = "fName") String fName, @RequestParam(value = "lName") String lName) {
         return "Hello " + fName + " " + lName + ".";
+    }
+
+    /**
+     * This is GET Request method it will display message Hello name
+     * when we use curl -X GET "http://localhost:8080/hello/param/Chandradip"
+     * @param name;
+     * @return hello Chandradip.
+     */
+    @GetMapping("/param/{name}")
+    public String hello(@PathVariable String name) {
+        return "Hello " + name + ".";
     }
 }
