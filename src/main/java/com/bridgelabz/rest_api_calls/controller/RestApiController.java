@@ -64,4 +64,18 @@ public class RestApiController {
     public String hello(@RequestBody User user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + ".";
     }
+
+    /**
+     * Annotation for mapping HTTP PUT requests onto specific handler methods.
+     * Purpose : Use PUT Request Method and pass first name as Path Variable and last name as Query Parameter.
+     * @param firstName;
+     * @param lastName;
+     * @return Hello firstName lastName.
+     */
+
+    @PutMapping("/put/{firstName}")
+    public String sayHello(@PathVariable String firstName,
+                           @RequestParam(value = "lastName") String lastName) {
+        return "Hello " + firstName + " " + lastName + ".";
+    }
 }
