@@ -12,6 +12,7 @@
 
 package com.bridgelabz.rest_api_calls.controller;
 
+import com.bridgelabz.rest_api_calls.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -50,5 +51,17 @@ public class RestApiController {
     @GetMapping("/param/{name}")
     public String hello(@PathVariable String name) {
         return "Hello " + name + ".";
+    }
+
+    /**
+     *  Annotation for mapping HTTP POST requests onto specific handler methods.
+     *  The Post Request is used to display the message by passing first name and last name.
+     *   curl -
+     * @param user;
+     * @return Hello firstName lastName.
+     */
+    @PostMapping("/post")
+    public String hello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + ".";
     }
 }
